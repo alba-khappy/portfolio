@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: white;
   font-family: "Cormorant", serif;
@@ -11,6 +15,12 @@ ul {
 
 a {
   text-decoration: none;
+}
+a:focus {
+  outline: none;
+  color: #201614;
+  font-weight: 800;
+  text-decoration: underline;
 }
 
 h1 {
@@ -59,6 +69,7 @@ input {
   background-color: white;
   border: 2px solid #201614;
   padding: 10px 15px;
+  transition: 0.3s;
 }
 
 .header-photo {
@@ -101,10 +112,6 @@ input {
   bottom: 0;
 }
 
-.main {
-  scroll-behavior: smooth;
-}
-
 /*about*/
 .about {
   padding: 50px 100px;
@@ -118,6 +125,11 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.about-container a {
+  color: #201614;
+  font-weight: 800;
+  text-decoration: underline;
 }
 
 /*works*/
@@ -135,6 +147,11 @@ input {
   align-items: center;
   margin-bottom: 50px;
 }
+.works-container a {
+  color: #201614;
+  font-weight: 800;
+  text-decoration: underline;
+}
 
 .works__a {
   display: block;
@@ -151,8 +168,9 @@ input {
 }
 
 .works-pic__img {
-  max-width: 280px;
-  max-height: 280px;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 50px;
   filter: grayscale(100%) opacity(0.8);
   transition: 0.3s;
 }
@@ -166,6 +184,12 @@ input {
 }
 
 /*contacts*/
+#contacts a {
+  color: #201614;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
 .contacts--heading {
   background: url(../images/left-hand.png) no-repeat 0 20%, url(../images/right-hand.png) no-repeat 100% 20%, url(../images/loading.png) no-repeat 50% 25%, url(../images/bg2.jpg) no-repeat;
   background-size: 500px, 500px, 100px, auto;
@@ -188,11 +212,15 @@ form {
 }
 
 .form__input {
-  width: 300px;
-  height: 80px;
   border-bottom: 2px solid #201614;
   background-color: transparent;
   margin-bottom: 60px;
+  padding: 20px 30px;
+}
+
+.form__input:focus {
+  outline: none;
+  border: 2px solid #201614;
 }
 
 .btn {
