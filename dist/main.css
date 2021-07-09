@@ -15,7 +15,6 @@ ul {
 
 a {
   text-decoration: none;
-  word-break: break-all;
 }
 a:focus {
   outline: none;
@@ -71,6 +70,7 @@ input {
   border: 2px solid #201614;
   padding: 10px 15px;
   transition: 0.3s;
+  word-break: break-word;
 }
 
 .header-photo {
@@ -140,6 +140,8 @@ input {
 }
 
 .works-img {
+  width: 300px;
+  height: 300px;
   margin-right: 50px;
 }
 
@@ -177,6 +179,10 @@ input {
 }
 .works-pic__img:not(:last-child) {
   margin-right: 50px;
+}
+
+.works__a {
+  word-break: break-all;
 }
 
 .works-pic__img:hover {
@@ -349,6 +355,7 @@ form {
 
   .works-img {
     width: 150px;
+    height: 150px;
   }
 
   .works-pic-container {

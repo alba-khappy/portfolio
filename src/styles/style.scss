@@ -42,7 +42,6 @@ ul {
 
 a {
     text-decoration: none;
-    word-break: break-all;
     &:focus {
         outline: none;
         @include link-decoration;
@@ -97,6 +96,7 @@ input {
 .header__a {
     @include btn;
     transition: 0.3s;
+    word-break: break-word;
 }
 
 .header-photo {
@@ -168,6 +168,8 @@ input {
 }
 
 .works-img {
+    width: 300px;
+    height: 300px;
     margin-right: 50px;
 }
 
@@ -207,6 +209,10 @@ input {
     &:not(:last-child) {
         margin-right: 50px;
     }
+}
+
+.works__a {
+    word-break: break-all;
 }
 
 .works-pic__img:hover {
@@ -394,6 +400,7 @@ form {
 
     .works-img {
         width: 150px;
+        height: 150px;
     }
 
     .works-pic-container {
