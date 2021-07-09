@@ -15,6 +15,7 @@ ul {
 
 a {
   text-decoration: none;
+  word-break: break-all;
 }
 a:focus {
   outline: none;
@@ -73,7 +74,7 @@ input {
 }
 
 .header-photo {
-  width: 500px;
+  width: 400px;
 }
 
 .btn-reset {
@@ -190,6 +191,11 @@ input {
   text-decoration: underline;
 }
 
+.js-validate-error-label {
+  position: relative;
+  bottom: 60px;
+}
+
 .contacts--heading {
   background: url(../images/left-hand.png) no-repeat 0 20%, url(../images/right-hand.png) no-repeat 100% 20%, url(../images/loading.png) no-repeat 50% 25%, url(../images/bg2.jpg) no-repeat;
   background-size: 500px, 500px, 100px, auto;
@@ -236,7 +242,11 @@ form {
   text-align: center;
 }
 
-@media (max-width: 1500px) and (min-width: 768px) {
+@media (max-width: 1500px) {
+  .header--logo {
+    margin-right: 0;
+  }
+
   .header__ul {
     flex-direction: column;
     position: absolute;
@@ -245,7 +255,12 @@ form {
   }
 
   .header__li {
-    margin-bottom: 50px;
+    margin-bottom: -30px;
+    transition: 0.3s;
+  }
+
+  .header__li--close {
+    margin-bottom: 20px;
   }
 
   .header--items {
@@ -256,7 +271,125 @@ form {
     display: block;
   }
 
+  .about-container {
+    flex-direction: column-reverse;
+  }
+
   .works-container {
     flex-direction: column;
+  }
+
+  .works {
+    background: none;
+  }
+
+  .works-img {
+    margin-right: 0;
+  }
+
+  .contacts--heading {
+    background: url(../images/left-hand.png) no-repeat 0 20%, url(../images/right-hand.png) no-repeat 100% 20%, url(../images/loading.png) no-repeat 50% 20%, url(../images/bg2.jpg) no-repeat;
+  }
+
+  .contacts--h1 {
+    margin-bottom: 160px;
+  }
+
+  .contacts--heading {
+    background-size: 250px, 250px, 50px, auto;
+  }
+}
+@media (max-width: 1500px) and (min-width: 769px) {
+  .header-photo {
+    width: 200px;
+  }
+}
+@media (max-width: 768px) and (min-width: 320px) {
+  body {
+    font-size: 18px;
+  }
+
+  .header--logo {
+    width: 50px;
+    margin-right: 0;
+  }
+
+  .header-photo {
+    width: 200px;
+  }
+
+  .header {
+    padding: 20px 50px;
+  }
+
+  .header__ul {
+    right: 10px;
+    top: 70px;
+  }
+
+  .about {
+    padding: 30px 30px 0;
+  }
+  .about h1 {
+    text-align: left;
+  }
+
+  .about-container {
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 25px;
+    margin: 0 0 20px;
+  }
+
+  .works {
+    padding: 10px 30px;
+  }
+
+  .works-img {
+    width: 150px;
+  }
+
+  .works-pic-container {
+    width: 250px;
+    margin: 0 auto;
+  }
+
+  .works-pic__img {
+    width: 150px;
+    height: 150px;
+  }
+  .works-pic__img:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .works-pic {
+    padding: 0;
+  }
+
+  .contacts--heading {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .contacts--heading {
+    background: url(../images/left-hand.png) no-repeat 0 10%, url(../images/right-hand.png) no-repeat 100% 10%, url(../images/loading.png) no-repeat 50% 10%, url(../images/bg2.jpg) no-repeat;
+  }
+
+  .contacts--heading {
+    background-size: 100px, 100px, 30px, auto;
+  }
+
+  .contacts--h1 {
+    margin-bottom: 80px;
+  }
+
+  .form__input {
+    margin-bottom: 30px;
+  }
+
+  .footer {
+    padding: 20px 30px;
   }
 }

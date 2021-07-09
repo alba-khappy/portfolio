@@ -54,8 +54,7 @@ const scss = () => {
 
 
 const scripts = () => {
-    return src('src/js/*.js'
-    )
+    return src('src/js/*.js')
     .pipe(babel({
         presets: ['@babel/env']
     }))
@@ -90,7 +89,8 @@ const images = () => {
 
 watch('src/**/*.html', htmlMinify)
 watch('src/styles/*.scss', scss)
-watch('src/styles/*.scss', styles)
+watch('src/styles/*.css', styles)
+watch('src/js/*.js', scripts)
 
 
 exports.clean = clean
