@@ -24,7 +24,8 @@ $mainColor: #201614;
 @mixin link-decoration {
     color: #201614;
         font-weight: 800;
-        text-decoration: underline;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #201614;
 }
 
 body {
@@ -146,6 +147,7 @@ input {
     @include sectionPadding;
     background-image: url(../images/bg.jpg);
     background-repeat: no-repeat;
+    background-size: cover;
     border-bottom: 2px solid $mainColor;
     border-top: 2px solid $mainColor;
 }
@@ -164,7 +166,8 @@ input {
 
 .works {
         @include sectionPadding;
-        background: url(../images/hands.png) 100% 50% no-repeat;
+        background: url(../images/h.png) 100% 10% no-repeat, url(../images/g.png) 100% 50% no-repeat, url(../images/l.png) 94% 90% no-repeat;
+        background-size: 25%, 43%, 15%;
 }
 
 .works-img {
@@ -183,9 +186,15 @@ input {
     }
 }
 
+.works__p--splash {
+    width: 320px;
+}
+
 .works__a {
     display: block;
+    text-align: center;
     margin-bottom: 20px;
+    width: 210px;
 }
 
 /*works-pic*/
@@ -263,6 +272,9 @@ form {
     background-color: transparent;
     margin-bottom: 60px;
     padding: 20px 30px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
 }
 
 .form__input:focus {
@@ -272,6 +284,36 @@ form {
 
 .btn {
     @include btn;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.container {
+    width: 400px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.choices__list--dropdown {
+    width: 415px;
+}
+
+.choices__inner {
+    font-size: 30px;
+}
+
+.choices__item {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.choices__placeholder {
+    opacity: 1;
+}
+
+.choices__list--dropdown .choices__item--selectable {
+    font-size: 30px;
+    padding: 20px 0;
 }
 
 /*footer*/
@@ -314,6 +356,18 @@ form {
     .burger {
         display: block;
     }
+
+    .burger:focus{
+        outline: none;
+
+        .burger__line {
+            background-color:#5a3f39;
+        }
+    }
+
+    .burger:hover .burger__line {
+        background-color:#a58a84;
+    }
     
     .about-container {
         flex-direction: column-reverse;
@@ -321,10 +375,20 @@ form {
     
     .works-container {
         flex-direction: column;
+        margin-bottom: 30px;
+
+        a {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
     }
 
     .works {
         background: none;
+    }
+
+    .works__a {
+        margin: 0 auto;
     }
 
     .works-img {
@@ -359,6 +423,10 @@ form {
         font-size: 18px;
     }
 
+    .about-container a {
+        padding-bottom: 0;
+    }
+
     .header--logo {
         width: 50px;
         margin-right:0;
@@ -366,6 +434,7 @@ form {
 
     .header-photo {
         width: 200px;
+        margin: 0 auto;
     }
 
     .header {
@@ -421,6 +490,11 @@ form {
         padding: 0;
     }
 
+    .works__p--splash {
+        text-align: center;
+        width: 320px;
+    }
+
     .contacts--heading {
         padding-top :10px;
         padding-bottom: 10px;
@@ -445,8 +519,35 @@ form {
         margin-bottom: 30px;
     }
 
+    .container {
+        width: 270px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+    
+    .choices__list--dropdown {
+        width: 285px;
+    }
+
+    .choices__item--selectable {
+        width: 285px;
+    }
+    
+    .choices__inner, .choices__list--dropdown .choices__item--selectable  {
+        font-size: 16px;
+    }
+
+    .choices__list.choices__list--single {
+        width: 180px;
+    }
+
+    .js-validate-error-label {
+        bottom: 20px;
+    }
+
     .footer {
         padding: 20px 30px;
     }
+
 
 }
