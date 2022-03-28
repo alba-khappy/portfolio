@@ -145,9 +145,8 @@ input {
 
 .about {
     @include sectionPadding;
-    background-image: url(../images/bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url("../images/marble.jpg"), rgba(211, 211, 211, 0.9) repeat;
+    background-size: cover, cover;
     border-bottom: 2px solid $mainColor;
     border-top: 2px solid $mainColor;
 }
@@ -166,8 +165,8 @@ input {
 
 .works {
         @include sectionPadding;
-        background: url(../images/h.png) 100% 10% no-repeat, url(../images/g.png) 100% 50% no-repeat, url(../images/l.png) 94% 90% no-repeat;
-        background-size: 25%, 43%, 15%;
+        background: url(../images/h.png) 100% 10% no-repeat, url(../images/g.png) 100% 50% no-repeat;
+        background-size: 25%, 43%;
 }
 
 .works-img {
@@ -204,7 +203,9 @@ input {
 }
 
 .works-pic-container {
-    text-align: center;
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(4, auto);
 }
 
 .works-pic__img {
@@ -214,14 +215,19 @@ input {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%) opacity(.8);
     transition: 0.3s;
+    justify-self: center;
 
-    &:not(:last-child) {
-        margin-right: 50px;
+    &:nth-child(5) {
+        grid-area: 2/2/3/3;
+    }
+
+    &:nth-child(6) {
+        grid-area: 2/3/3/4;
     }
 }
 
 .works__a {
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .works-pic__img:hover {
@@ -247,7 +253,7 @@ input {
     background: url(../images/left-hand.png) no-repeat 0 20%, 
     url(../images/right-hand.png) no-repeat 100% 20%, 
     url(../images/loading.png) no-repeat 50% 25%,
-    url(../images/bg2.jpg) no-repeat;
+    url(../images/marble.jpg) no-repeat;
     background-size: 500px, 500px, 100px, auto;
     padding-top: 100px;
     padding-bottom: 100px;
@@ -324,6 +330,97 @@ form {
 }
 
 
+/*popup*/
+
+.popup-container {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(28, 33, 29, 0.92);
+    z-index: 100;
+}
+
+.popup {
+    position: relative;
+    width: 540px;
+    height: 435px;
+    padding: 20px;
+    background-size: cover;
+    background: url("../images/g.png") no-repeat center, url("../images/bg2.jpg") no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        font-size: 35px;
+        text-align: center;
+    }
+}
+
+.popup__btn-close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: -60px;
+    top: -60px;
+    border: none;
+    background-color: transparent;
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        background-color: white;
+        transform: rotate(-45deg);
+        right: 4px;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        background-color: white;
+        transform: rotate(45deg);
+        right: 4px;
+    }
+}
+
+
+
+@media (max-width: 1200px) and (min-width: 901px){
+
+    .works-pic-container {
+        grid-template-columns: repeat(3, auto);
+    }
+}
+
+@media (max-width: 900px) {
+    .works-pic-container {
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: repeat(6, auto);
+    }
+
+    .works-pic__img {
+        &:nth-child(5) {
+            grid-area: auto;
+        }
+
+        &:nth-child(6) {
+            grid-area: auto;
+        }
+    }
+}
+
+
 @media (max-width: 1500px) {
     .header--nav {
         // display: none;
@@ -355,17 +452,17 @@ form {
 
     .burger {
         display: block;
+        transition-duration: 3s;
+        transition-property: background-color;
     }
 
     .burger:focus{
         outline: none;
-
-        .burger__line {
-            background-color:#5a3f39;
-        }
     }
 
     .burger:hover .burger__line {
+        transition-duration: 0.3s;
+        transition-property: background-color;
         background-color:#a58a84;
     }
     
@@ -383,10 +480,6 @@ form {
         }
     }
 
-    .works {
-        background: none;
-    }
-
     .works__a {
         margin: 0 auto;
     }
@@ -397,7 +490,7 @@ form {
     
     .contacts--heading {
         background: url(../images/left-hand.png) no-repeat 0 20%, url(../images/right-hand.png) no-repeat 100% 20%, 
-        url(../images/loading.png) no-repeat 50% 20%, url(../images/bg2.jpg) no-repeat;
+        url(../images/loading.png) no-repeat 50% 20%, url(../images/marble.jpg) no-repeat;
     }
 
     .contacts--h1 {
@@ -417,7 +510,7 @@ form {
     }
 }
 
-@media (max-width: 768px) and (min-width: 320px) {
+@media (max-width: 768px) {
 
     body {
         font-size: 18px;
@@ -480,6 +573,11 @@ form {
     .works-pic__img {
         width: 150px;
         height: 150px;
+        filter: grayscale(0%) opacity(1);
+
+        &:focus {
+            transform: scale(1.1);
+        }
 
         &:not(:last-child) {
             margin-right: 0;
@@ -504,7 +602,7 @@ form {
         background: url(../images/left-hand.png) no-repeat 0 10%, 
         url(../images/right-hand.png) no-repeat 100% 10%, 
         url(../images/loading.png) no-repeat 50% 10%, 
-        url(../images/bg2.jpg) no-repeat;
+        url(../images/marble.jpg) no-repeat;
     }
     
     .contacts--heading {
@@ -547,6 +645,19 @@ form {
 
     .footer {
         padding: 20px 30px;
+    }
+
+    .popup {
+        width: 250px;
+        height: 200px;
+
+        p {
+            font-size: 18px;
+        }
+    }
+
+    .popup__btn-close {
+        right: 0;
     }
 
 
